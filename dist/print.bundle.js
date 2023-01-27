@@ -1,1 +1,1 @@
-(()=>{"use strict"})();
+(()=>{const e={title:"make cookies",description:"make some goddang awesome cookies",dueDate:new Date,priority:4,notes:"use this recipe:"};console.log(e)})();
