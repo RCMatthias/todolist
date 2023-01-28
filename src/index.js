@@ -2,7 +2,7 @@ import _ from 'lodash';
 import './style.css';
 import Icon from './icon.png';
 import printMe from './print.js'
-import todofactory from './print.js'
+import todoCard from './print.js'
 
 function component() {
     const element = document.createElement('div');

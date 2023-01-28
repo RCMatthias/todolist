@@ -1,1 +1,1 @@
-(()=>{const e={title:"make cookies",description:"make some goddang awesome cookies",dueDate:new Date,priority:4,notes:"use this recipe:"};console.log(e)})();
+(()=>{let e=[];const o=(console.log(e),{createTodo:(o,s,t,a,i)=>e.push({title:o,description:s,dueDate:t,priority:a,notes:i})});let s=new Date;o.createTodo("make cookies","make some goddang awesome cookies",s,4,"use this recipe:"),o.createTodo("make love","make some goddang awesome cookies",s,4,"use this recipe:")})();
