@@ -3,36 +3,70 @@
 
   } 
  */
-let defaultProject = [];
+const Project = function Project(title, description){
+  let defaultProject = [];
 
-// create a todo card MODULE
-const todoCard = (() => {
- 
-  const createTodo = (title, description, dueDate, priority, notes) => defaultProject.push({ title, description, dueDate, priority, notes});
-  console.log(defaultProject);
-  
-  const changeTitle= () => {};
-  //FIND WAY TO CHANGE THE OBJECT BASED ON OBJECT KEY (mapping, for loop, cf Library?)
-  //projects = array; todocards = objects? or also array? array of arrays? 
-  const changeDescription= () => {};
-  const changeDueDate= () => {};
-  const changePriority= () => {};
-  const changeNotes= () => {};
+  const addTodo = (todo) => defaultProject.push(todo);
+  const deleteTodo = (todoId) => {};
+  const at = (index) => ({
+    get value(){return defaultProject[index]},
+    set value(val){defaultProject[index] = val;}
+  })
+  const reset = () => defaultProject.fill("");
 
-  const emptyTodo = () => {};
   return {
-    createTodo,
-    
-   }
-})(); 
+    at,
+    get value(){return [...defaultProject]},
+    addTodo,
+    deleteTodo,
+  };
+};
+
+Project.at(0)
+// create a todo card function factory 
+/* const Todo = function Todo(title, description, priority, dueDate) {
+
+  let done = false; 
+  const toggleStatus = () => done = !done;
+/*   const create = (title, description, dueDate, priority, notes) => {
+    const todoInfo = [title, description, dueDate, priority, notes]; 
+    defaultProject.push(todoInfo);  
+  }
+  return {
+    title, 
+    description,
+    priority,
+    dueDate, 
+    toggleStatus,
+  }
+ // TITLE GETTER
+ // TITLE SETTER 
+}; */
 
 let myDate = new Date();
-todoCard.createTodo('make cookies', 'make some goddang awesome cookies', myDate, 4, 'use this recipe:')
-todoCard.createTodo('make love', 'make some goddang awesome cookies', myDate, 4, 'use this recipe:')
-
+/* Todo.create('make cookies', 'make some goddang awesome cookies', myDate, 4, 'use this recipe:')
+ */
 
 //add ability to interface with the contents of the created object in todofactory
 
+
+/* const changeTitle= (newTitle, cardNumber) => {
+  createTodo[0].todoInfo[0] = newTitle;
+};
+changeTitle("test") */
+
+
+//FIND WAY TO CHANGE THE OBJECT BASED ON OBJECT KEY (mapping, for loop, cf Library?)
+//projects = array; todocards = objects? or also array? array of arrays? 
+
+
+/* const changeDescription= () => {};
+const changeDueDate= () => {};
+const changePriority= () => {};
+const changeNotes= () => {};
+
+const emptyTodo = () => {};
+ */
 //Add new todocard to default project automatically (change this only afterwards using projectChange function)
 //priority height function 
 //4 = highest, 1 is lowest

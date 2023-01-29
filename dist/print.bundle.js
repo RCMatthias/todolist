@@ -1,1 +1,1 @@
-(()=>{let e=[];const o=(console.log(e),{createTodo:(o,s,t,a,i)=>e.push({title:o,description:s,dueDate:t,priority:a,notes:i})});let s=new Date;o.createTodo("make cookies","make some goddang awesome cookies",s,4,"use this recipe:"),o.createTodo("make love","make some goddang awesome cookies",s,4,"use this recipe:")})();
+(function(e,t){let u=[];return{at:e=>({get value(){return u[e]},set value(t){u[e]=t}}),get value(){return[...u]},addTodo:e=>u.push(e),deleteTodo:e=>{}}}).at(0),new Date;
