@@ -3,15 +3,16 @@
 
   } 
  */
-const Project = function Project(title, description){
+const Project = function Project(){
   let defaultProject = [];
 
   const addTodo = (todo) => defaultProject.push(todo);
   const deleteTodo = (todoId) => {};
+  
   const at = (index) => ({
     get value(){return defaultProject[index]},
     set value(val){defaultProject[index] = val;}
-  })
+  });
   const reset = () => defaultProject.fill("");
 
   return {
@@ -21,14 +22,21 @@ const Project = function Project(title, description){
     deleteTodo,
   };
 };
+let project1 = Project(); 
 
-Project.at(0)
+project1.at(0).value = ["drink", "water"];
+project1.at(1).value = ["sleep", "at least 8 hours"];
+project1.at(2).value = ["eat", "eat some delicious strawberries"];
+
+console.log(project1.value)
+
+
 // create a todo card function factory 
-/* const Todo = function Todo(title, description, priority, dueDate) {
+const Todo = function Todo(title, description, priority, dueDate) {
 
   let done = false; 
   const toggleStatus = () => done = !done;
-/*   const create = (title, description, dueDate, priority, notes) => {
+   const create = (title, description, dueDate, priority, notes) => {
     const todoInfo = [title, description, dueDate, priority, notes]; 
     defaultProject.push(todoInfo);  
   }
@@ -41,7 +49,7 @@ Project.at(0)
   }
  // TITLE GETTER
  // TITLE SETTER 
-}; */
+}; 
 
 let myDate = new Date();
 /* Todo.create('make cookies', 'make some goddang awesome cookies', myDate, 4, 'use this recipe:')

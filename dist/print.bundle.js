@@ -1,1 +1,1 @@
-(function(e,t){let u=[];return{at:e=>({get value(){return u[e]},set value(t){u[e]=t}}),get value(){return[...u]},addTodo:e=>u.push(e),deleteTodo:e=>{}}}).at(0),new Date;
+(()=>{let e=function(){let e=[];return{at:t=>({get value(){return e[t]},set value(a){e[t]=a}}),get value(){return[...e]},addTodo:t=>e.push(t),deleteTodo:e=>{}}}();e.at(0).value=["drink","water"],e.at(1).value=["sleep","at least 8 hours"],e.at(2).value=["eat","eat some delicious strawberries"],console.log(e.value),new Date})();
