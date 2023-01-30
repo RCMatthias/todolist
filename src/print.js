@@ -24,11 +24,11 @@ const Project = function Project(){
 };
 let project1 = Project(); 
 
-project1.at(0).value = ["drink", "water"];
-project1.at(1).value = ["sleep", "at least 8 hours"];
+/* project1.at(1).value = ["sleep", "at least 8 hours"];
 project1.at(2).value = ["eat", "eat some delicious strawberries"];
-
-
+ */
+/* console.log(project1.value)
+ */
 
 // create a todo card function factory 
 const Todo = ({
@@ -56,17 +56,35 @@ const myTodo = Todo({
   title: "Buy groceries",
   description: "Get some grub for the week"
 });
+const myTodo2 = Todo({
+  title: "Drink water",
+  description: "Stay hydrated homies!"
+});
 //toggle check value in created obj todo 
-myTodo.check = !myTodo.check;
-console.log(JSON.stringify(myTodo, null, 2))
-
+const todoToggler = function todoToggler(todo){
+  todo.check = !todo.check
+}/* 
+/* todoToggler(myTodo) */ */
+/* 
+myTodo.check = !myTodo.check; */
+ 
 //when we create a todo; automatically add it to the project
 //try to add a todo to the above project
 
+project1.addTodo(myTodo)
+project1.addTodo(myTodo2)
+const todoRouter = function todoRouter(project, todo){
+  project.value.push(todo);
+};
 
-project1.at(3).value = myTodo; 
-console.log(project1.value)
+/* todoRouter(project1, myTodo);
+todoRouter(project1, myTodo2); */
 
+/* project1.at(3).value = myTodo; 
+ */
+console.table(JSON.stringify(project1, null, 2))
+/* console.log((project1.value))
+ */
 /* function Todo() {
 
   let done = true; 
