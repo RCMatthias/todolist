@@ -28,30 +28,79 @@ project1.at(0).value = ["drink", "water"];
 project1.at(1).value = ["sleep", "at least 8 hours"];
 project1.at(2).value = ["eat", "eat some delicious strawberries"];
 
-console.log(project1.value)
 
 
 // create a todo card function factory 
-const Todo = function Todo(title, description, priority, dueDate) {
+const Todo = ({
+  title='',
+  description='',
+  priority='normal',
+  created=Date.now(),
+  due=Date.now()
+}) => {
+  let check = false; 
 
-  let done = false; 
-  const toggleStatus = () => done = !done;
-   const create = (title, description, dueDate, priority, notes) => {
-    const todoInfo = [title, description, dueDate, priority, notes]; 
+  return Object({
+    get title(){return title;},
+    set title(value){title = value},
+    get description() {return description;},
+    get priority() {return priority},
+    get created() {return created},
+    get due() {return due;},
+    get check() {return check},
+    set check(value){check = value},
+    isA: 'Todo'
+  })
+}
+const myTodo = Todo({
+  title: "Buy groceries",
+  description: "Get some grub for the week"
+});
+//toggle check value in created obj todo 
+myTodo.check = !myTodo.check;
+console.log(JSON.stringify(myTodo, null, 2))
+
+//when we create a todo; automatically add it to the project
+//try to add a todo to the above project
+
+
+project1.at(3).value = myTodo; 
+console.log(project1.value)
+
+/* function Todo() {
+
+  let done = true; 
+  const toggleStatus = () => {
+    done = !done ;
+  };
+  const create = (title, description, dueDate, priority) => {
+    const todoInfo = [title, description, dueDate, priority]; 
     defaultProject.push(todoInfo);  
   }
-  return {
-    title, 
-    description,
-    priority,
-    dueDate, 
+  // manage "done" using closures 
+  const getDone = () => done;
+  const setDone = (newDone) => { done = newDone; };
+  return { 
+    create,
     toggleStatus,
+    getDone,
+    setDone
   }
  // TITLE GETTER
  // TITLE SETTER 
 }; 
+let Todo1 = Todo();
+Todo1.toggleStatus();
+console.log(Todo1.getDone);
+
 
 let myDate = new Date();
+ */
+
+
+//split into modules:
+// todologic, projectlogic, projectmanager logic, displaylogic, css as needed beetje basic vormgeven reeds met grid? 
+
 /* Todo.create('make cookies', 'make some goddang awesome cookies', myDate, 4, 'use this recipe:')
  */
 
