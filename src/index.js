@@ -1,26 +1,34 @@
 import _ from 'lodash';
 import './style.css';
-import Icon from './icon.png';
-import printMe from './print.js'
-import todoCard from './print.js'
+import {createTodo, Todo, todoToggler} from './todologic.js';
+import {Project } from './projectlogic.js';
+import {component, displayTodo} from './displaylogic.js';
 
-function component() {
-    const element = document.createElement('div');
-    const btn = document.createElement('button');
 
-    element.innerHTML = _.join(['ToDo', 'Listr'], ' ');
-    element.classList.add('hello');
+document.body.appendChild(component()); 
 
-  const myIcon = new Image(); 
-  myIcon.src = Icon;
-  element.appendChild(myIcon);
 
-  btn.innerHTML = 'Click me and check the console!';
-  btn.onclick = printMe;
+let project1 = Project(); 
+createTodo("test1", "Eat soup", project1 );
+createTodo("test2", "Drink water", project1 );
+createTodo("test3", "Make love", project1 );
 
-  element.appendChild(btn);
+document.body.appendChild(displayTodo(project1, 0 )); 
+document.body.appendChild(displayTodo(project1, 1 )); 
 
-    return element;
-  }
 
- document.body.appendChild(component());
+
+////////////  TODO ///////////////
+
+
+
+//start creating separate module for controlling 
+//(import its functionality into the buttons in view mode but create all dynamically in DOM!)
+
+//import date-fns
+
+//localstorage (make sure doesnt crash if data isn't in localstorage (preventdefault?),; use JSON (cant store funcs in this!)
+
+
+
+

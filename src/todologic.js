@@ -1,36 +1,5 @@
-/* function printMe() {
-    console.log('I get called from print.js!');
+import { create } from "lodash";
 
-  } 
- */
-const Project = function Project(){
-  let defaultProject = [];
-
-  const addTodo = (todo) => defaultProject.push(todo);
-  const deleteTodo = (todoId) => {};
-  
-  const at = (index) => ({
-    get value(){return defaultProject[index]},
-    set value(val){defaultProject[index] = val;}
-  });
-  const reset = () => defaultProject.fill("");
-
-  return {
-    at,
-    get value(){return [...defaultProject]},
-    addTodo,
-    deleteTodo,
-  };
-};
-let project1 = Project(); 
-
-/* project1.at(1).value = ["sleep", "at least 8 hours"];
-project1.at(2).value = ["eat", "eat some delicious strawberries"];
- */
-/* console.log(project1.value)
- */
-
-// create a todo card function factory 
 const Todo = ({
   title='',
   description='',
@@ -52,37 +21,55 @@ const Todo = ({
     isA: 'Todo'
   })
 }
-const myTodo = Todo({
+
+//toggle check value in created obj todo 
+const todoToggler = function todoToggler(todo){
+  todo.check = !todo.check
+};
+
+const createTodo = function createTodo (todo, description, project){
+  const newTodo = Todo({
+    title: todo, 
+    description: description
+  })
+  project.addTodo(newTodo);
+};
+
+
+export {Todo, todoToggler,createTodo }
+
+//to change the checked value 
+      /* todoToggler(project1.at(2).value);
+        console.log(project1.at(2))
+      */
+
+
+
+
+
+
+
+/* const myTodo = Todo({
   title: "Buy groceries",
   description: "Get some grub for the week"
 });
 const myTodo2 = Todo({
   title: "Drink water",
   description: "Stay hydrated homies!"
-});
-//toggle check value in created obj todo 
-const todoToggler = function todoToggler(todo){
-  todo.check = !todo.check
-}/* 
-/* todoToggler(myTodo) */ */
+}); */
 /* 
-myTodo.check = !myTodo.check; */
- 
-//when we create a todo; automatically add it to the project
-//try to add a todo to the above project
 
-project1.addTodo(myTodo)
-project1.addTodo(myTodo2)
 const todoRouter = function todoRouter(project, todo){
   project.value.push(todo);
-};
+}; */
 
 /* todoRouter(project1, myTodo);
 todoRouter(project1, myTodo2); */
 
 /* project1.at(3).value = myTodo; 
  */
-console.table(JSON.stringify(project1, null, 2))
+
+
 /* console.log((project1.value))
  */
 /* function Todo() {
@@ -116,8 +103,6 @@ let myDate = new Date();
  */
 
 
-//split into modules:
-// todologic, projectlogic, projectmanager logic, displaylogic, css as needed beetje basic vormgeven reeds met grid? 
 
 /* Todo.create('make cookies', 'make some goddang awesome cookies', myDate, 4, 'use this recipe:')
  */
