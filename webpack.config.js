@@ -12,6 +12,7 @@ module.exports = {
             title: 'ToDoerist',
         }),
     ],
+    mode: 'development',
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist',),

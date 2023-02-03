@@ -1,6 +1,7 @@
 import Icon from './icon.png';
 import {createTodo, Todo, todoToggler} from './todologic.js';
 import {Project} from './projectlogic.js';
+import { head } from 'lodash';
 
 //create a function per page 
 
@@ -29,16 +30,22 @@ function displayTodo(project, index){
 //Overviewscreen div: 
 
 
-function component() {
-    const element = document.createElement('div');
-    const btn = document.createElement('button');
+function grid() {
+    const grid = document.createElement('div');
+    grid.classList.add('grid-container');
 
-    element.innerHTML = _.join(['ToDo', 'Erist'], ' ');
-    element.classList.add('hello');
+        const header = document.createElement('div');
+        header.classList.add('grid-header');
 
-    const myIcon = new Image(100, 100); 
-    myIcon.src = Icon;
-    element.appendChild(myIcon);
+        const element = document.createElement('div');
+        const btn = document.createElement('button');
+
+        element.innerHTML = _.join(['ToDo', 'Erist'], ' ');
+        element.classList.add('hello');
+
+        const myIcon = new Image(100, 100); 
+        myIcon.src = Icon;
+        element.appendChild(myIcon);
 
     btn.innerHTML = 'New Todo';
     btn.classList.add('todobtn')
@@ -46,10 +53,12 @@ function component() {
 
 /*     btn.onclick = createTodo("test3", "just testing", project1 );
  */ 
-    element.appendChild(btn);
 
-    return element;
+    element.appendChild(btn);
+    header.appendChild(element);
+    grid.appendChild(header);
+    return grid;
   }
 
 
-export {component, displayTodo}
+export {grid, displayTodo}
